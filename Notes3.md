@@ -19,4 +19,6 @@
 - Class & Style binding
 - Computed property
 - Components
+- Communicating Events
+- 
 

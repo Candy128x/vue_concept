@@ -10,17 +10,17 @@
 <div id="app">
 	<div class="product">
 		<div class="product-image">
-			<img v-bind:src="imgLink" width="250px" height="250px">
+			<img v-bind:src="image" width="250px" height="250px">
 		</div>
 		
 		<div class="product-info">
 			<h1>{{ title }}</h1>
 
-			<p v-if="10 < inventory">In Stock</p>
-			<p v-else-if="0 < inventory && 10 >= inventory">Almost sold out</p>
+			<p v-if="10 < inStock">In Stock</p>
+			<p v-else-if="0 < inStock && 10 >= inStock">Almost sold out</p>
 			<p v-else>Out of Stock</p>
 
-			<p>Only {{ inventory }} stocks left</p>
+			<p>Only {{ inStock }} stocks left</p>
 
 			<h3>Price: $ {{ price }} only</h3>
 			<p v-show="discount">Discount {{ discountAmmount }}%</p>
@@ -33,11 +33,11 @@
 
 			<p>Available on colors:</p>
 			<div 
-				v-for="variant in variants" 
+				v-for="(variant, index) in variants" 
 				:key="variant.variantId"
 				class="color-box"
 				:style="{ backgroundColor: variant.variantColor }"
-				@mouseover="updateProduct(variant.variantImg)">
+				@mouseover="updateProduct(index)">
 			</div>
 			<br><br><br>
 
