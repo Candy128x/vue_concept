@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product</title>
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+
+
+<div id="app">
+	<div class="cart">
+		<p>Cart({{ cart.length }})</p>
+	</div>
+
+<div class="row">
+	<product :premium="premium" @add-to-cart="updateCart"></product>
+</div>
+
+</div>
+
+
+</div>
+
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script type="text/javascript" src="../../static/js/mainVue.js"></script>
+<script type="text/javascript" src="static/js/mainBottom.js"></script>
+
+</body>
+</html> 
