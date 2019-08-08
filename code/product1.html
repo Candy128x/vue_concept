@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+
+
+<div id="app">
+	<div class="product">
+		<div class="product-image">
+			<img v-bind:src="image" width="250px" height="250px">
+		</div>
+		
+		<div class="product-info">
+			<h1>{{ title }}</h1>
+
+			<p v-if="10 < inStock">In Stock</p>
+			<p v-else-if="0 < inStock && 10 >= inStock">Almost sold out</p>
+			<p v-else>Out of Stock</p>
+
+			<p>Only {{ inStock }} stocks left</p>
+
+			<h3>Price: $ {{ price }} only</h3>
+			<p v-show="discount">Discount {{ discountAmmount }}%</p>
+
+			<ul>
+				<li v-for="detail in details">{{ detail }}</li>
+			</ul>
+
+			<br>
+
+			<p>Available on colors:</p>
+			<div 
+				v-for="(variant, index) in variants" 
+				:key="variant.variantId"
+				class="color-box"
+				:style="{ backgroundColor: variant.variantColor }"
+				@mouseover="updateProduct(index)">
+			</div>
+			<br><br><br>
+
+			<button 
+				v-on:click="addToCart" 
+				:disabled="!inStock"
+				:class="{disabledBtn: !inStock}"
+				>Add to Cart</button>
+			<div class="cart">
+				<p>Cart({{cart}})</p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script type="text/javascript" src="../static/js/mainVue.js"></script>
+<script type="text/javascript" src="../static/js/mainBottom.js"></script>
+
+</body>
+</html> 
