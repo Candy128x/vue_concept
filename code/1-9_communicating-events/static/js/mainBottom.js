@@ -48,6 +48,8 @@ Vue.component('product', {
 				>Add to Cart</button>
 
 		</div>
+
+		<product-review></product-review>
 	</div>
 	`,
 
@@ -116,6 +118,19 @@ Vue.component('product', {
 
 
 
+})
+
+
+Vue.component('product-review', {
+	template: `
+		<input v-model="name">
+	`,
+
+	data() {
+		return {
+			name: null
+		}
+	}
 })
 
 
