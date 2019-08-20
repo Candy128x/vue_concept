@@ -11,6 +11,6 @@
 <kbd><img src="/imgs-readme/Screenshot from 2019-08-07 17-15-20.png"></img></kbd>
 
 ---
-## View Product info^n
+## View Product information (gif img)
 	- Listing of Product
 <kbd><img src="/imgs-readme/Screenshot from 2019-08-09 10-18-44_v2-1.gif"></img></kbd>

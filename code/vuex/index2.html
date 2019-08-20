@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/vuex"></script>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{ welcome }}</h1>
+	<h2>{{ message }}</h2>
+	<h3>{{ count }}</h3>
+	<button @click="pressed">Increment Counter</button>
+</div>
+
+
+<script type="text/javascript">
+const store = new Vuex.Store({
+	state: {
+		message: 'Hello from Vuex',
+		count: 0
+	},
+
+	mutations: { //	Sycronous
+		increment(state, payload) {
+			state.count += payload
+		}
+	},
+
+	action: {	// Asncronous
+		increment(state, payload) {
+			state.dispatch('increment', payload)
+		}
+	},
+
+	getters: {
+		message(state) {
+			return state.message.toUpperCase();
+		},
+		counter(state) {
+			return state.count;
+		}
+	}
+
+});
+
+new Vue({
+	el: '#app',
+	data(){
+		return {
+			welcome: 'Hello Vue Developer'
+		}
+	},
+
+	computed: {
+		message(){
+			return store.getters.message;
+		},
+
+		count(){
+			return store.getters.counter;
+		}
+	},
+
+	methods: {
+		pressed(){
+			store.commit('increment', 20)
+		}
+	}
+});
+
+</script>
+</body>
+</html>
+
+
+<!-- 
+Note
+@ref: Program With Erik
+>https://www.youtube.com/watch?v=LW9yIR4GoVU 
+
+
+## Cycle
+- Component -> Action -> mutation -> state -> ... -> getters
+-->
